@@ -1,6 +1,8 @@
 #!/bin/bash
 echo '{"files":['
-for f in images/*.jpeg; do
-  echo '"'$f'",'
+delim=""
+for f in `ls -1 images/*.jpeg | shuf`; do
+  echo $delim'"'$f'"'
+  delim=","
 done
 echo ']}'
